@@ -1,0 +1,346 @@
+$my_link: none;
+$color_primary: #0282F9;
+$color_secondary: #959595;
+
+@mixin space-position {
+    max-width: 1000px;
+    margin: auto;
+}
+
+@mixin my-ul-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin d-flex {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin d-flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin text-white {
+    text-transform: uppercase;
+    color: white;
+}
+
+@mixin pill {
+    display: inline-block;
+
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.wrapper {
+    background-image: url("/public/images/footer-bg.jpg");
+}
+
+.bg-logo-img {
+    position: absolute;
+    height: 130%;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#foot {
+    background-color: #303030;
+    padding: 20px 0;
+}
+
+#dark-gray-bar {
+    background-color: #202020;
+    height: 100px;
+}
+
+section {
+    @include d-flex;
+    @include space-position;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.foot-container {
+    @include space-position;
+    @include d-flex;
+    justify-content: space-between;
+}
+
+.container-menu-footer {
+    @include d-flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.paragraph {
+    flex-basis: 100%;
+    font-size: small;
+    color: $color_secondary;
+    padding-bottom: 20px;
+}
+.par {
+    color: $color_primary;
+    cursor: pointer;
+}
+
+.container-ul {
+    @include d-flex-column;
+}
+
+.list-icon {
+    @include my-ul-list;
+    gap: 10px;
+
+    li {
+        width: 25px;
+        cursor: pointer;
+    }
+}
+
+.list-footer {
+    list-style-type: none;
+    padding: 0;
+    margin: 18px 0;
+
+    li {
+        color: $color_secondary;
+        font-size: small;
+        padding: 3px;
+
+        &:first-child {
+            @include text-white;
+            font-size: 18px;
+            padding: 12px 3px;
+        }
+    }
+}
+
+.btn-foot {
+    @include pill;
+    @include text-white;
+    border: 2px solid $color_primary;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.icons {
+    @include d-flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#follow {
+    color: $color_primary;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.img-icon {
+    width: 100%;
+}
+header {
+    @include d-flex;
+    @include space-position;
+    justify-content: space-between;
+}
+
+.nav-link {
+    @include my-ul-list;
+    gap: 20px;
+
+    li {
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+    }
+
+    .active-link {
+        border-bottom: 4px solid $color_primary;
+        color: $color_primary;
+
+        .link {
+            color: $color_primary;
+        }
+    }
+
+}
+
+.link-list-item {
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    text-decoration: $my_link;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: black;
+    font-weight: 600;
+
+    &:visited {
+        color: black;
+    }
+}
+
+.img-logo {
+    width: 100%;
+}
+
+.logo-container {
+    width: 80px;
+    padding: 10px 0;
+}
+.jumbotron {
+    height: 290px;
+    background-image: url('/public/images/jumbotron.jpg');
+    background-size: cover;
+}
+#current-series {
+    position: relative;
+}
+.btn-big {
+    @include pill;
+    @include text-white;
+    background-color: $color_primary;
+    font-weight: 600;
+    padding: 10px 20px;
+    font-size: 18px;
+    position: absolute;
+    left: 175px;
+    top: -20.5px;
+    cursor: pointer;
+  }
+  .caret-down {
+    color: $color_primary;
+    font-size: 15px;
+    margin-left: 8px;
+  }
+  .card-container {
+    @include space-position;
+    @include d-flex;
+    flex-wrap: wrap;
+    row-gap: 30px;
+}
+$a: 100%;
+$b: 10px;
+.card {
+    flex-basis: calc((#{$a} / 6) - (#{$b}) * 2);
+    margin: 0 10px;
+    max-width: 146.667px;
+
+    .desc {
+        @include text-white;
+        overflow-wrap: break-word;
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 15px;
+    }
+
+    .img-container {
+        height: 200px;
+        position: relative;
+
+        .overlay {
+            display: none;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+
+        &:hover {
+
+            .overlay {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                background-color: rgba(0, 0, 0, 0.5);
+                @include text-white;
+                font-weight: 600;
+
+                span {
+
+                    &:first-child {
+                        font-size: 14px;
+                        margin-bottom: 6px;
+                    }
+
+                    &:last-child {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+main {
+    background-color: #1C1C1C;
+    padding: 65px 0 20px;
+}
+.row-btn {
+    text-align: center;
+  }
+  .btn {
+    @include pill;
+    @include text-white;
+    background-color: $color_primary;
+    padding: 10px 30px;
+    font-weight: 600;
+    margin-top: 50px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  div.my-section-blue {
+    @include d-flex;
+    justify-content: center;
+    background-color: $color_primary;
+    padding: 40px 0;
+    gap: 35px;
+
+    .my-icons-item {
+        @include d-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .my-icon-desc {
+        @include text-white;
+        font-size: 14px;
+    }
+
+    .my-icon-container {
+        width: 35px;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+.upper-bar {
+    font-size: small;
+    background-color: $color_primary;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+    padding: 10px 0;
+    padding-right: 100px;
+}
